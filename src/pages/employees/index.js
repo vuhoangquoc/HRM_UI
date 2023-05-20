@@ -31,7 +31,7 @@ const Page = () => {
         onCancel={() => setIsOpenAddNewDialog(false)}
       />
       <Head>
-        <title>Employees | HRM</title>
+        <title>Employee | HRM</title>
       </Head>
       <Box
         component="main"
@@ -45,7 +45,7 @@ const Page = () => {
           <Stack spacing={3}>
             <Stack direction="row" justifyContent="space-between" spacing={4}>
               <Stack spacing={1}>
-                <Typography variant="h4">Employees</Typography>
+                <Typography variant="h4">Employee</Typography>
                 <Stack alignItems="center" direction="row" spacing={1}>
                   <Button
                     color="inherit"
