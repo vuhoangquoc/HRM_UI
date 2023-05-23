@@ -53,9 +53,26 @@ export const EmployeeProfileDetails = memo(({ employeeId }) => {
     },
     enableReinitialize: true,
     validationSchema: Yup.object({
-      firstName: Yup.string().max(255).required("First name is required"),
-      lastName: Yup.string().max(255).required("Last name is required"),
-      address: Yup.string().max(255).required("Address is required"),
+      // firstName: Yup.string().max(255).required("First name is required"),
+      // lastName: Yup.string().max(255).required("Last name is required"),
+      // check input number
+      firstName: Yup.string()
+        .matches(/^[a-zA-ZÀ-ỹ ]+$/, "First name must contain only letters")
+        .max(255, "First name is too long")
+        .required("First name is required"),
+      lastName: Yup.string()
+        .matches(/^[a-zA-ZÀ-ỹ ]+$/, "Last name must contain only letters")
+        .max(255, "Last name is too long")
+        .required("Last name is required"),
+      email: Yup.string().email("Must be a valid email").max(255).required("Email is required"),
+      // address: Yup.string().max(255).required("Address is required"),
+      address: Yup.string()
+        .max(255)
+        .matches(
+          /^(?=.*[a-zA-ZÀ-ỹ ])[a-zA-ZÀ-ỹ0-9\s\p{L}\p{M}\p{Pd}\p{Pc}\p{Mn}\p{Po}/]+$/,
+          "Address must contain at least one letter and cannot consist of numbers only"
+        )
+        .required("Address is required"),
     }),
     onSubmit: async (values, helpers) => {
       try {

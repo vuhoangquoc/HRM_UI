@@ -19,7 +19,11 @@ const Page = () => {
     },
     validationSchema: Yup.object({
       email: Yup.string().email("Must be a valid email").max(255).required("Email is required"),
-      name: Yup.string().max(255).required("Name is required"),
+      // name: Yup.string().max(255).required("Name is required"),
+      name: Yup.string()
+        .matches(/^[a-zA-ZÀ-ỹ ]+$/, "First name must contain only letters")
+        .max(255, "First name is too long")
+        .required("First name is required"),
       password: Yup.string().max(255).required("Password is required"),
     }),
     onSubmit: async (values, helpers) => {
