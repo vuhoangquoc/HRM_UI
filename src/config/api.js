@@ -3,7 +3,7 @@ import localStorageConst from "src/constants/localStorageConst";
 import { isJwtExpired } from "jwt-check-expiration";
 
 const apiConfig = axios.create({
-  baseURL: "http://localhost:8080/api/v1",
+  baseURL: "https://hrm-api.herokuapp.com/api/v1",
   headers: {
     "Content-Type": "application/json",
   },

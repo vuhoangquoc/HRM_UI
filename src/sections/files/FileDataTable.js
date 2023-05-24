@@ -75,11 +75,11 @@ const Actions = ({ fileId, downloadUrl, fileName, fileType }) => {
     await fileContext.download(downloadUrl, fileName);
   };
   const handleShowImage = async () => {
-    const url = "http://localhost:8080/api/v1/files/images/" + fileId;
+    const url = "https://hrm-api.herokuapp.com/api/v1/files/images/" + fileId;
     window.open(url, "_blank", "noopener,noreferrer");
   };
   const handleShowPdf = async () => {
-    const url = "http://localhost:8080/api/v1/files/pdf/" + fileId;
+    const url = "https://hrm-api.herokuapp.com/api/v1/files/pdf/" + fileId;
     window.open(url, "_blank", "noopener,noreferrer");
   };
   const handleCloseDialog = () => setIsOpenDialog(false);
